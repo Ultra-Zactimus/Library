@@ -59,6 +59,10 @@ Developer Note -- <em>You do not need the square brackets around the password fi
 
 No known bugs at this time
 
+## Stretch Goals
+
+* The prompt asked for the ability for users to be able to check out books and for the Admin to be able to view who has checked out which books. I was unable to get this working within the time frame so I removed it from the code, but I would like to learn how to do this.
+
 ## License
 
 MIT
