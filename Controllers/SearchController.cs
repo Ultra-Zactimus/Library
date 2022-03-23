@@ -25,7 +25,7 @@ namespace Library.Controllers
     
     public ActionResult Index(string search)
     {
-      List<Book> foundBook = _db.Books.Where(book => book.Title.Contains(search)).ToList();
+      List<Book> foundBook = _db.Books.Where(book => book.Title.Contains(search)).ToList(); // Looks for a variable named search in View for Search
       return View(foundBook);
     }
   }

@@ -12,7 +12,7 @@
 @using (Html.BeginForm())
 {
   <label>Search for a Book by title:</label>
-  @Html.TextBox("search")<br>
+  @Html.TextBox("search")<br>  //This had to be a TextBox because the TextBox creates a variable that the controller will manipulate
   <button type="submit" class="btn btn-success" value="search">Submit</button>
 }
 <hr>
