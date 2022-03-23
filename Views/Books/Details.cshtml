@@ -1,0 +1,42 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Book
+
+<h2>Book Details</h2>
+<hr />
+<h3>Title:</h3>
+<h5>@Html.DisplayFor(model => model.Title)</h5>
+<h3>Authored by:</h3>
+<h5>@Html.DisplayFor(model => model.Author)</h5>
+<h3>Published by:</h3>
+<h5>@Html.DisplayFor(model => model.Publisher)</h5>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This book has not been cataloged</p>
+}
+else
+{
+  <h4>Catalogs the item belongs to:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@join.Catalog.Ticket</li>
+    @using (Html.BeginForm("DeleteCategory", "Items"))
+    {
+      @Html.Hidden("joinId", @join.StorageId)
+      <input type="submit" value="Delete"/>
+    }
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Rent this Book", "Index", "Users", new { id = Model.BookId })</p>
+
+<p>@Html.ActionLink("Add A Catalog", "AddCatalog", new { id = Model.BookId })</p>
+
+<p>@Html.ActionLink("Back To Books", "Index")</p>
+<p>@Html.ActionLink("Edit This Book", "Edit", new { id = Model.BookId })</p>
+<p>@Html.ActionLink("Delete This Book", "Delete", new { id = Model.BookId })</p>

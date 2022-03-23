@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Catalog
+
+<h4>Create A Catalog</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Ticket)
+  @Html.TextBoxFor(model => model.Ticket)
+  <input type="submit" value="Add Catalog to Registry" />
+}
+<p>@Html.ActionLink("Back to Catalogs", "Index")</p>

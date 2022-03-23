@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Book
+
+<h4>Add a new task</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Title)
+  @Html.TextBoxFor(model => model.Title)
+
+  @Html.LabelFor(model => model.Author)
+  @Html.TextBoxFor(model => model.Author)
+
+  @Html.LabelFor(model => model.Publisher)
+  @Html.TextBoxFor(model => model.Publisher)
+
+  @Html.Label("Select catalog")
+  @Html.DropDownList("CatalogId")
+
+  <input type="submit" value="Add new book" class="btn btn-success" />
+}
+<p>@Html.ActionLink("Back To Books", "Index")</p>

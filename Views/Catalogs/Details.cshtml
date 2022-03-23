@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Catalog;
+
+<h2>Catalog Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Ticket): @Html.DisplayFor(model => model.Ticket)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This Catalog does not contain any Books</p>
+}
+else
+{
+  <h4>Books in this Catalog:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@join.Book.Title</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back To Catalogs", "Index")</p>
+<p>@Html.ActionLink("Edit This Catalog", "Edit", new { id = Model.CatalogId })</p>
+<p>@Html.ActionLink("Delete This Catalog", "Delete", new { id = Model.CatalogId })</p>

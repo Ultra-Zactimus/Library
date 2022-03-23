@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Book
+
+<h2>Add To Catalog</h2>
+
+<h4>Add This Book To Catalog: @Html.DisplayFor(model => model.Title)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.BookId)
+
+  @Html.Label("Select Catalog")
+  @Html.DropDownList("CatalogId")
+
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back To Books", "Index")</p>
